@@ -12,16 +12,18 @@ import java.util.Iterator;
  * @author TofixXx
  */
 public class DFSforBipart {
-    boolean marked[];
-    boolean part[];
-    boolean isBipart = true;
-    HashSet<Integer> AdjList[];
+    
+    private boolean marked[];
+    private boolean part[];
+    private boolean isBipart = true;
+    private HashSet<Integer>[] adjList;
+    
     DFSforBipart(HashSet<Integer> AList[], int V, int E)
     {
-        AdjList = AList;
+        this.adjList = AList;
         marked = new boolean[V + 1];
         part = new boolean[V + 1];
-        Iterator<Integer> it = AdjList[1].iterator();
+        Iterator<Integer> it = adjList[1].iterator();
         marked[1] = true;
         part[1] = true;
         while(it.hasNext())
@@ -39,9 +41,10 @@ public class DFSforBipart {
             }
         }
     }
-    void search(int V)
+    
+    private void search(int V)
     {
-        Iterator<Integer> it = AdjList[V].iterator();
+        Iterator<Integer> it = adjList[V].iterator();
         while(it.hasNext())
         {
             int S = it.next();
@@ -61,12 +64,9 @@ public class DFSforBipart {
             }
         }
     }
-    public int isBipart()
+    
+    public boolean isBipart()
     {
-        if(isBipart)
-        {
-            return 1;
-        }
-        return -1;
+        return isBipart;
     }
 }

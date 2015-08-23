@@ -43,7 +43,7 @@ public class TestingBipartiteness {
                     AdjList[b].add(a);
                 }
                 DFSforBipart dfs = new DFSforBipart(AdjList, V, E);
-                writer.write(Integer.toString(dfs.isBipart()) + " ");
+                writer.write(Integer.toString(dfs.isBipart() ? 1:-1) + " ");
                 writer.flush();
             }
         } catch (IOException e) {
