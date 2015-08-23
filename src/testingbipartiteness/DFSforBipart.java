@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package testingbipartiteness;
 
 import java.util.HashSet;
@@ -11,6 +8,11 @@ import java.util.Iterator;
  *
  * @author TofixXx
  */
+
+/** Deep-First Search algotrithm realization that trying to divide
+ * graphs vertecies to two sets, where no edges between vertices 
+ * in the same set. After trying, provides info about bipartiteness.
+ */
 public class DFSforBipart {
     
     private boolean marked[];
@@ -18,9 +20,9 @@ public class DFSforBipart {
     private boolean isBipart = true;
     private HashSet<Integer>[] adjList;
     
-    DFSforBipart(HashSet<Integer> AList[], int V, int E)
+    DFSforBipart(HashSet<Integer> adjList[], int V, int E)
     {
-        this.adjList = AList;
+        this.adjList = adjList;
         marked = new boolean[V + 1];
         part = new boolean[V + 1];
         Iterator<Integer> it = adjList[1].iterator();

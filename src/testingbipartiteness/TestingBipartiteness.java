@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package testingbipartiteness;
 
 import java.io.BufferedReader;
@@ -16,13 +13,15 @@ import java.util.HashSet;
  *
  * @author TofixXx
  */
+
+/** Solution for testing graph's bipartite problem */
 public class TestingBipartiteness {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        // TODO code application logic here
+
         try (BufferedReader reader = new BufferedReader(new FileReader("rosalind_bip.txt"));
                 FileWriter writer = new FileWriter(new File("output.txt"))) {
             int N = Integer.parseInt(reader.readLine());
@@ -46,7 +45,7 @@ public class TestingBipartiteness {
                 writer.write(Integer.toString(dfs.isBipart() ? 1:-1) + " ");
                 writer.flush();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
